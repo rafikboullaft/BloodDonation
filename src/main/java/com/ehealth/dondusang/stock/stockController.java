@@ -21,22 +21,18 @@ public class stockController {
         return stockServices.getAllPaquets();
     }
 
-    @RequestMapping("stock/{id}")
+    @RequestMapping("paquetId/{id}")
     public Optional<paquet> findOnePaquet(@PathVariable String id) {
         return stockServices.findOne(id);
     }
-    // @RequestMapping("stock/{type}")
-    // public paquet findpaquetbytype(@PathVariable String type){
-    //     return stockServices.findByType(type);
-    // }
-    // @RequestMapping("stock/{GS}")
-    // public paquet findPaquetsByGS(@PathVariable String gs){
-    //     return stockServices.findByGroupsanguin(gs);
-    // }
-    // @RequestMapping("stock/{type}/{GS}")
-    // public paquet findPaquetsByGSoftype(@PathVariable String gs,@PathVariable String type){
-    //     return stockServices.findByGroupsanguin(gs);
-    // }
+    @RequestMapping("stock/{type}")
+    public List<paquet> findpaquetbytype(@PathVariable String type){
+         return stockServices.findByTypes(type);
+    }
+    @RequestMapping("stock/{type}/{gs}")
+    public List<paquet> findPaquetsByGS(@PathVariable String gs){
+        return stockServices.findByGroupsanguins(gs);
+    }
     @RequestMapping(value ="/stock/{id}", method = RequestMethod.PUT)
     public void updatePaquet(@PathVariable String id,@RequestBody paquet paquet){
         stockServices.updatePaquet(id, paquet);

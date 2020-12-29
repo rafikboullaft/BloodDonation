@@ -26,12 +26,12 @@ public class stockServices {
     public Optional<paquet> findOne(String Id) {
         return stockRepository.findById(Id);
     }
-    // public List<paquet> findByType(String type){
-    //     return stockRepository.findByType(type);
-    // }
-    // public List<paquet> findByGroupsanguin(String type){
-    //     return stockRepository.findByGreoupSanguin(type);
-    // }
+    public List<paquet> findByTypes(String type){
+         return stockRepository.findByType(type);
+    }
+    public List<paquet> findByGroupsanguins(String groupeSanguin){
+         return stockRepository.findByGroupeSanguin(groupeSanguin);
+    }
     public void addPaquet(paquet paquet){
         stockRepository.save(paquet);
     }
