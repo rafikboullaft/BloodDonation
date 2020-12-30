@@ -1,18 +1,11 @@
 package com.ehealth.dondusang.donneur;
 
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
 import org.springframework.data.annotation.Id;
-
-import ch.qos.logback.core.util.Duration;
 
 @Entity
 public class Donneur extends Personne {
