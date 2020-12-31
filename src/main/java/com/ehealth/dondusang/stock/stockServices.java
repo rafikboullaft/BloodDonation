@@ -23,8 +23,8 @@ public class stockServices {
         return paquets;
     }
 
-    public Optional<paquet> findOne(String Id) {
-        return stockRepository.findById(Id);
+    public Optional<paquet> findOne(String CodePaque) {
+        return stockRepository.findByCodePaquet(CodePaque);
     }
     public List<paquet> findByTypes(String type){
          return stockRepository.findByType(type);
@@ -41,6 +41,18 @@ public class stockServices {
     public void deletePaquet(String Id){
         stockRepository.deleteById(Id); 
     }
+
+    public List<paquet> ReserveOfGlobules(int numberOfDays){
+        return stockRepository.findReserveOfglobules(numberOfDays);
+    }
+    public List<paquet> ReserveOfPlasma(int numberOfDays){
+        return stockRepository.findReserveOfPlasma(numberOfDays);
+    }
+    public List<paquet> ReserveOfPlaquettes(int numberOfDays){
+        return stockRepository.findReserveOfplaquettes(numberOfDays);
+    }
+    
+   
     // public List<paquet> getSizeOfStock(String type,String gs){
     //     List<paquet> paquetType= stockRepository.findByType(type);
     //     return paquetType.stream().filter(p -> p.getGroupeSanguin().equals(gs)).findAny().get();

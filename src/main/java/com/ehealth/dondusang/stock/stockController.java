@@ -45,7 +45,19 @@ public class stockController {
     public void updatePaquet(@PathVariable String id){
         stockServices.deletePaquet(id);
     }
-
+    @RequestMapping("/stock/reserveofglobules/{days}")
+    public List<paquet> ReserveOfGlobules(@PathVariable int days){
+        //System.out.println(stockServices.testofquery(days).size());
+        return stockServices.ReserveOfGlobules(days);
+    }
+    @RequestMapping("/stock/reserveofplasma/{days}")
+    public List<paquet> ReserveOfPlasma(@PathVariable int days){
+        return stockServices.ReserveOfPlasma(days);
+    }
+    @RequestMapping("/stock/reserveofplaquettes/{days}")
+    public List<paquet> ReserveOfPlaquettes(@PathVariable int days){
+        return stockServices.ReserveOfPlaquettes(days);
+    }
     
     
 }
