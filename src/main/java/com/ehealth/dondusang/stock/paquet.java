@@ -1,31 +1,53 @@
 package com.ehealth.dondusang.stock;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
 
 
 @Entity
 public class paquet {
 
-    @javax.persistence.Id
-    String Id;
+    @Id
+    @GeneratedValue
+    int Id;
+    String codePaquet;
     boolean isExpired=false;
     String type;
     String groupeSanguin;
-    String dateOfDonation;
+    Date dateOfDonation;
 
-    public paquet(String Id, boolean isExpired, String type, String groupeSanguin, String dateOfDonation) {
-        this.Id=Id;
+    public paquet(int id, String codePaquet, boolean isExpired, String type, String groupeSanguin,
+            Date dateOfDonation) {
+        Id = id;
+        this.codePaquet = codePaquet;
         this.isExpired = isExpired;
         this.type = type;
         this.groupeSanguin = groupeSanguin;
         this.dateOfDonation = dateOfDonation;
     }
-    
-    public String getId(){
+    public paquet(){
+
+    }
+
+    public int getId() {
         return Id;
     }
-    public void setId(String id){
-        Id=id;
+
+    public void setId(int id) {
+        Id = id;
+    }
+
+    public String getCodePaquet() {
+        return codePaquet;
+    }
+
+    public void setCodePaquet(String codePaquet) {
+        this.codePaquet = codePaquet;
     }
 
     public boolean isExpired() {
@@ -52,14 +74,14 @@ public class paquet {
         this.groupeSanguin = groupeSanguin;
     }
 
-    public String getDateOfDonation() {
+    public Date getDateOfDonation() {
         return dateOfDonation;
     }
 
-    public void setDateOfDonation(String dateOfDonation) {
+    public void setDateOfDonation(Date dateOfDonation) {
         this.dateOfDonation = dateOfDonation;
     }
+    
 
-    public paquet() {
-    }
+   
 }
